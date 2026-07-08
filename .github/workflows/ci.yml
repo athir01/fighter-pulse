@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: fighterpulse
+          POSTGRES_PASSWORD: fighterpulse
+          POSTGRES_DB: fighterpulse
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U fighterpulse"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install uv
+        run: pip install uv
+      - name: Install dependencies
+        run: uv pip install --system -e ".[dev]"
+      - name: Apply migrations
+        run: |
+          psql "postgresql://fighterpulse:fighterpulse@localhost:5432/fighterpulse" \
+            -f db/migrations/0001_init.sql
+      - name: Lint
+        run: ruff check .
+      - name: Type check
+        run: mypy ingest
+      - name: Test
+        env:
+          DATABASE_URL: postgresql://fighterpulse:fighterpulse@localhost:5432/fighterpulse
+          ANTHROPIC_API_KEY: sk-ant-test-placeholder
+        run: pytest -v

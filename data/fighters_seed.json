@@ -1,0 +1,17 @@
+[
+  {"slug": "jon-jones", "full_name": "Jon Jones", "aliases": ["Bones Jones"]},
+  {"slug": "islam-makhachev", "full_name": "Islam Makhachev", "aliases": []},
+  {"slug": "alex-pereira", "full_name": "Alex Pereira", "aliases": ["Poatan"]},
+  {"slug": "ilia-topuria", "full_name": "Ilia Topuria", "aliases": ["El Matador"]},
+  {"slug": "leon-edwards", "full_name": "Leon Edwards", "aliases": ["Rocky"]},
+  {"slug": "sean-strickland", "full_name": "Sean Strickland", "aliases": []},
+  {"slug": "alexander-volkanovski", "full_name": "Alexander Volkanovski", "aliases": []},
+  {"slug": "dricus-du-plessis", "full_name": "Dricus Du Plessis", "aliases": ["DDP"]},
+  {"slug": "kamaru-usman", "full_name": "Kamaru Usman", "aliases": ["The Nigerian Nightmare"]},
+  {"slug": "charles-oliveira", "full_name": "Charles Oliveira", "aliases": ["Do Bronx"]},
+  {"slug": "israel-adesanya", "full_name": "Israel Adesanya", "aliases": ["The Last Stylebender"]},
+  {"slug": "max-holloway", "full_name": "Max Holloway", "aliases": ["Blessed"]},
+  {"slug": "justin-gaethje", "full_name": "Justin Gaethje", "aliases": ["The Highlight"]},
+  {"slug": "colby-covington", "full_name": "Colby Covington", "aliases": ["Chaos"]},
+  {"slug": "tom-aspinall", "full_name": "Tom Aspinall", "aliases": []}
+]
