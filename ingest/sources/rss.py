@@ -15,8 +15,9 @@ from ..models import ParsedArticle
 from .base import NewsSource
 
 FEEDS: dict[str, str] = {
-    "mmajunkie": "https://mmajunkie.usatoday.com/feed",
-    "mmafighting": "https://www.mmafighting.com/rss/current",
+    "mmafighting": "https://www.mmafighting.com/rss/index.xml",
+    "sherdog": "https://www.sherdog.com/rss/news.xml",
+    "bjpenn": "https://www.bjpenn.com/feed/",
 }
 
 
