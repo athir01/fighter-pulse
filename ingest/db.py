@@ -52,6 +52,19 @@ class Repository:
         assert row is not None
         return str(row[0])
 
+    def upsert_fighter(self, slug: str, full_name: str, aliases: list[str]) -> None:
+        self._c.execute(
+            """
+            INSERT INTO fighters (slug, full_name, aliases)
+            VALUES (%s, %s, %s)
+            ON CONFLICT (slug) DO UPDATE SET
+                full_name = EXCLUDED.full_name,
+                aliases = EXCLUDED.aliases,
+                updated_at = now()
+            """,
+            (slug, full_name, aliases),
+        )
+
     def resolve_fighter_id(self, slug: str) -> str | None:
         row = self._c.execute(
             "SELECT id FROM fighters WHERE slug = %s", (slug,)

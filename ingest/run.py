@@ -35,7 +35,10 @@ def main() -> int:
 
     roster = load_roster()
     vader = VaderScorer()
-    llm = LlmScorer(cost_tracker)
+    llm_enabled = settings.anthropic_api_key != "sk-ant-your-key"
+    llm = LlmScorer(cost_tracker) if llm_enabled else None
+    if not llm_enabled:
+        log.warning("llm_disabled: ANTHROPIC_API_KEY is still the .env.example placeholder")
 
     source = RssSource()
     run_id = repo.start_run(source.source_name)
@@ -58,15 +61,16 @@ def main() -> int:
                         repo.upsert_fighter_sentiment(article_id, fighter_id, scored)
                         records += 1
 
-                try:
-                    for scored in llm.score(text, mentions):
-                        fighter_id = repo.resolve_fighter_id(scored.fighter_slug)
-                        if fighter_id:
-                            repo.upsert_fighter_sentiment(article_id, fighter_id, scored)
-                            records += 1
-                except CostCapExceeded as exc:
-                    log.warning("llm_cost_cap_reached: %s", exc)
-                    # Free VADER scores already written; just stop paying for LLM calls.
+                if llm is not None:
+                    try:
+                        for scored in llm.score(text, mentions):
+                            fighter_id = repo.resolve_fighter_id(scored.fighter_slug)
+                            if fighter_id:
+                                repo.upsert_fighter_sentiment(article_id, fighter_id, scored)
+                                records += 1
+                    except CostCapExceeded as exc:
+                        log.warning("llm_cost_cap_reached: %s", exc)
+                        # Free VADER scores already written; just stop paying for LLM calls.
             except Exception as exc:  # one bad article must not abort the run
                 log.error("article_failed url=%s error=%r", article.url, exc)
     except Exception as exc:
