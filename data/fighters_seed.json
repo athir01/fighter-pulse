@@ -1,20 +1,968 @@
 [
-  {"slug": "jon-jones", "full_name": "Jon Jones", "aliases": ["Bones Jones"]},
-  {"slug": "islam-makhachev", "full_name": "Islam Makhachev", "aliases": []},
-  {"slug": "alex-pereira", "full_name": "Alex Pereira", "aliases": ["Poatan"]},
-  {"slug": "ilia-topuria", "full_name": "Ilia Topuria", "aliases": ["El Matador"]},
-  {"slug": "leon-edwards", "full_name": "Leon Edwards", "aliases": ["Rocky"]},
-  {"slug": "sean-strickland", "full_name": "Sean Strickland", "aliases": []},
-  {"slug": "alexander-volkanovski", "full_name": "Alexander Volkanovski", "aliases": []},
-  {"slug": "dricus-du-plessis", "full_name": "Dricus Du Plessis", "aliases": ["DDP"]},
-  {"slug": "kamaru-usman", "full_name": "Kamaru Usman", "aliases": ["The Nigerian Nightmare"]},
-  {"slug": "charles-oliveira", "full_name": "Charles Oliveira", "aliases": ["Do Bronx"]},
-  {"slug": "israel-adesanya", "full_name": "Israel Adesanya", "aliases": ["The Last Stylebender"]},
-  {"slug": "max-holloway", "full_name": "Max Holloway", "aliases": ["Blessed"]},
-  {"slug": "justin-gaethje", "full_name": "Justin Gaethje", "aliases": ["The Highlight"]},
-  {"slug": "colby-covington", "full_name": "Colby Covington", "aliases": ["Chaos"]},
-  {"slug": "tom-aspinall", "full_name": "Tom Aspinall", "aliases": []},
-  {"slug": "conor-mcgregor", "full_name": "Conor McGregor", "aliases": ["The Notorious"]},
-  {"slug": "dustin-poirier", "full_name": "Dustin Poirier", "aliases": ["The Diamond"]},
-  {"slug": "belal-muhammad", "full_name": "Belal Muhammad", "aliases": ["Remember the Name"]}
+  {
+    "slug": "aaron-pico",
+    "full_name": "Aaron Pico",
+    "aliases": []
+  },
+  {
+    "slug": "aiemann-zahabi",
+    "full_name": "Aiemann Zahabi",
+    "aliases": []
+  },
+  {
+    "slug": "ailin-perez",
+    "full_name": "Ailin Perez",
+    "aliases": []
+  },
+  {
+    "slug": "aleksandar-rakic",
+    "full_name": "Aleksandar Rakic",
+    "aliases": []
+  },
+  {
+    "slug": "alex-pereira",
+    "full_name": "Alex Pereira",
+    "aliases": [
+      "Poatan"
+    ]
+  },
+  {
+    "slug": "alex-perez",
+    "full_name": "Alex Perez",
+    "aliases": []
+  },
+  {
+    "slug": "alexa-grasso",
+    "full_name": "Alexa Grasso",
+    "aliases": []
+  },
+  {
+    "slug": "alexander-volkanovski",
+    "full_name": "Alexander Volkanovski",
+    "aliases": []
+  },
+  {
+    "slug": "alexander-volkov",
+    "full_name": "Alexander Volkov",
+    "aliases": []
+  },
+  {
+    "slug": "alexandre-pantoja",
+    "full_name": "Alexandre Pantoja",
+    "aliases": []
+  },
+  {
+    "slug": "alexia-thainara",
+    "full_name": "Alexia Thainara",
+    "aliases": []
+  },
+  {
+    "slug": "aljamain-sterling",
+    "full_name": "Aljamain Sterling",
+    "aliases": []
+  },
+  {
+    "slug": "alonzo-menifield",
+    "full_name": "Alonzo Menifield",
+    "aliases": []
+  },
+  {
+    "slug": "amanda-lemos",
+    "full_name": "Amanda Lemos",
+    "aliases": []
+  },
+  {
+    "slug": "amanda-ribas",
+    "full_name": "Amanda Ribas",
+    "aliases": []
+  },
+  {
+    "slug": "amir-albazi",
+    "full_name": "Amir Albazi",
+    "aliases": []
+  },
+  {
+    "slug": "angela-hill",
+    "full_name": "Angela Hill",
+    "aliases": []
+  },
+  {
+    "slug": "ante-delija",
+    "full_name": "Ante Delija",
+    "aliases": []
+  },
+  {
+    "slug": "anthony-hernandez",
+    "full_name": "Anthony Hernandez",
+    "aliases": []
+  },
+  {
+    "slug": "arman-tsarukyan",
+    "full_name": "Arman Tsarukyan",
+    "aliases": [
+      "Ahalkalakets"
+    ]
+  },
+  {
+    "slug": "arnold-allen",
+    "full_name": "Arnold Allen",
+    "aliases": []
+  },
+  {
+    "slug": "asu-almabayev",
+    "full_name": "Asu Almabayev",
+    "aliases": []
+  },
+  {
+    "slug": "azamat-murzakanov",
+    "full_name": "Azamat Murzakanov",
+    "aliases": []
+  },
+  {
+    "slug": "belal-muhammad",
+    "full_name": "Belal Muhammad",
+    "aliases": [
+      "Remember the Name"
+    ]
+  },
+  {
+    "slug": "beneil-dariush",
+    "full_name": "Beneil Dariush",
+    "aliases": []
+  },
+  {
+    "slug": "benoit-saint-denis",
+    "full_name": "Benoit Saint Denis",
+    "aliases": []
+  },
+  {
+    "slug": "bia-mesquita",
+    "full_name": "Bia Mesquita",
+    "aliases": []
+  },
+  {
+    "slug": "bo-nickal",
+    "full_name": "Bo Nickal",
+    "aliases": []
+  },
+  {
+    "slug": "bogdan-guskov",
+    "full_name": "Bogdan Guskov",
+    "aliases": []
+  },
+  {
+    "slug": "brando-pericic",
+    "full_name": "Brando Pericic",
+    "aliases": []
+  },
+  {
+    "slug": "brandon-moreno",
+    "full_name": "Brandon Moreno",
+    "aliases": [
+      "The Assassin Baby"
+    ]
+  },
+  {
+    "slug": "brandon-royval",
+    "full_name": "Brandon Royval",
+    "aliases": []
+  },
+  {
+    "slug": "brendan-allen",
+    "full_name": "Brendan Allen",
+    "aliases": []
+  },
+  {
+    "slug": "brian-ortega",
+    "full_name": "Brian Ortega",
+    "aliases": []
+  },
+  {
+    "slug": "caio-borralho",
+    "full_name": "Caio Borralho",
+    "aliases": []
+  },
+  {
+    "slug": "carlos-prates",
+    "full_name": "Carlos Prates",
+    "aliases": []
+  },
+  {
+    "slug": "carlos-ulberg",
+    "full_name": "Carlos Ulberg",
+    "aliases": [
+      "Black Jag"
+    ]
+  },
+  {
+    "slug": "casey-oneill",
+    "full_name": "Casey O'Neill",
+    "aliases": []
+  },
+  {
+    "slug": "charles-johnson",
+    "full_name": "Charles Johnson",
+    "aliases": []
+  },
+  {
+    "slug": "charles-oliveira",
+    "full_name": "Charles Oliveira",
+    "aliases": [
+      "Do Bronx"
+    ]
+  },
+  {
+    "slug": "christian-leroy-duncan",
+    "full_name": "Christian Leroy Duncan",
+    "aliases": []
+  },
+  {
+    "slug": "ciryl-gane",
+    "full_name": "Ciryl Gane",
+    "aliases": [
+      "Bon Gamin"
+    ]
+  },
+  {
+    "slug": "colby-covington",
+    "full_name": "Colby Covington",
+    "aliases": [
+      "Chaos"
+    ]
+  },
+  {
+    "slug": "conor-mcgregor",
+    "full_name": "Conor McGregor",
+    "aliases": [
+      "The Notorious"
+    ]
+  },
+  {
+    "slug": "cory-sandhagen",
+    "full_name": "Cory Sandhagen",
+    "aliases": []
+  },
+  {
+    "slug": "curtis-blaydes",
+    "full_name": "Curtis Blaydes",
+    "aliases": []
+  },
+  {
+    "slug": "dan-hooker",
+    "full_name": "Dan Hooker",
+    "aliases": []
+  },
+  {
+    "slug": "daniel-rodriguez",
+    "full_name": "Daniel Rodriguez",
+    "aliases": []
+  },
+  {
+    "slug": "david-martinez",
+    "full_name": "David Martinez",
+    "aliases": []
+  },
+  {
+    "slug": "david-onama",
+    "full_name": "David Onama",
+    "aliases": []
+  },
+  {
+    "slug": "deiveson-figueiredo",
+    "full_name": "Deiveson Figueiredo",
+    "aliases": []
+  },
+  {
+    "slug": "denise-gomes",
+    "full_name": "Denise Gomes",
+    "aliases": []
+  },
+  {
+    "slug": "derrick-lewis",
+    "full_name": "Derrick Lewis",
+    "aliases": []
+  },
+  {
+    "slug": "diego-lopes",
+    "full_name": "Diego Lopes",
+    "aliases": []
+  },
+  {
+    "slug": "dominick-reyes",
+    "full_name": "Dominick Reyes",
+    "aliases": []
+  },
+  {
+    "slug": "dricus-du-plessis",
+    "full_name": "Dricus Du Plessis",
+    "aliases": [
+      "DDP"
+    ]
+  },
+  {
+    "slug": "dustin-poirier",
+    "full_name": "Dustin Poirier",
+    "aliases": [
+      "The Diamond"
+    ]
+  },
+  {
+    "slug": "edgar-chairez",
+    "full_name": "Edgar Chairez",
+    "aliases": []
+  },
+  {
+    "slug": "eduarda-moura",
+    "full_name": "Eduarda Moura",
+    "aliases": []
+  },
+  {
+    "slug": "erin-blanchfield",
+    "full_name": "Erin Blanchfield",
+    "aliases": []
+  },
+  {
+    "slug": "farid-basharat",
+    "full_name": "Farid Basharat",
+    "aliases": []
+  },
+  {
+    "slug": "fatima-kline",
+    "full_name": "Fatima Kline",
+    "aliases": []
+  },
+  {
+    "slug": "gabriel-bonfim",
+    "full_name": "Gabriel Bonfim",
+    "aliases": []
+  },
+  {
+    "slug": "gabriella-fernandes",
+    "full_name": "Gabriella Fernandes",
+    "aliases": []
+  },
+  {
+    "slug": "gillian-robertson",
+    "full_name": "Gillian Robertson",
+    "aliases": []
+  },
+  {
+    "slug": "gregory-rodrigues",
+    "full_name": "Gregory Rodrigues",
+    "aliases": []
+  },
+  {
+    "slug": "ian-machado-garry",
+    "full_name": "Ian Machado Garry",
+    "aliases": []
+  },
+  {
+    "slug": "ikram-aliskerov",
+    "full_name": "Ikram Aliskerov",
+    "aliases": []
+  },
+  {
+    "slug": "ilia-topuria",
+    "full_name": "Ilia Topuria",
+    "aliases": [
+      "El Matador"
+    ]
+  },
+  {
+    "slug": "irene-aldana",
+    "full_name": "Irene Aldana",
+    "aliases": []
+  },
+  {
+    "slug": "islam-makhachev",
+    "full_name": "Islam Makhachev",
+    "aliases": []
+  },
+  {
+    "slug": "israel-adesanya",
+    "full_name": "Israel Adesanya",
+    "aliases": [
+      "The Last Stylebender"
+    ]
+  },
+  {
+    "slug": "jack-della-maddalena",
+    "full_name": "Jack Della Maddalena",
+    "aliases": [
+      "JDM"
+    ]
+  },
+  {
+    "slug": "jacqueline-cavalcanti",
+    "full_name": "Jacqueline Cavalcanti",
+    "aliases": []
+  },
+  {
+    "slug": "jamahal-hill",
+    "full_name": "Jamahal Hill",
+    "aliases": [
+      "Sweet Dreams"
+    ]
+  },
+  {
+    "slug": "jan-blachowicz",
+    "full_name": "Jan Blachowicz",
+    "aliases": []
+  },
+  {
+    "slug": "jared-cannonier",
+    "full_name": "Jared Cannonier",
+    "aliases": []
+  },
+  {
+    "slug": "jasmine-jasudavicius",
+    "full_name": "Jasmine Jasudavicius",
+    "aliases": []
+  },
+  {
+    "slug": "jean-silva",
+    "full_name": "Jean Silva",
+    "aliases": []
+  },
+  {
+    "slug": "jessica-andrade",
+    "full_name": "Jessica Andrade",
+    "aliases": []
+  },
+  {
+    "slug": "jiri-prochazka",
+    "full_name": "Jiri Prochazka",
+    "aliases": []
+  },
+  {
+    "slug": "jj-aldrich",
+    "full_name": "JJ Aldrich",
+    "aliases": []
+  },
+  {
+    "slug": "joaquin-buckley",
+    "full_name": "Joaquin Buckley",
+    "aliases": []
+  },
+  {
+    "slug": "joe-pyfer",
+    "full_name": "Joe Pyfer",
+    "aliases": []
+  },
+  {
+    "slug": "johnny-walker",
+    "full_name": "Johnny Walker",
+    "aliases": []
+  },
+  {
+    "slug": "jon-jones",
+    "full_name": "Jon Jones",
+    "aliases": [
+      "Bones Jones"
+    ]
+  },
+  {
+    "slug": "joselyne-edwards",
+    "full_name": "Joselyne Edwards",
+    "aliases": []
+  },
+  {
+    "slug": "josh-hokit",
+    "full_name": "Josh Hokit",
+    "aliases": []
+  },
+  {
+    "slug": "joshua-van",
+    "full_name": "Joshua Van",
+    "aliases": []
+  },
+  {
+    "slug": "julianna-pena",
+    "full_name": "Julianna Pena",
+    "aliases": [
+      "The Venezuelan Vixen"
+    ]
+  },
+  {
+    "slug": "justin-gaethje",
+    "full_name": "Justin Gaethje",
+    "aliases": [
+      "The Highlight"
+    ]
+  },
+  {
+    "slug": "kamaru-usman",
+    "full_name": "Kamaru Usman",
+    "aliases": [
+      "The Nigerian Nightmare"
+    ]
+  },
+  {
+    "slug": "karine-silva",
+    "full_name": "Karine Silva",
+    "aliases": []
+  },
+  {
+    "slug": "karol-rosa",
+    "full_name": "Karol Rosa",
+    "aliases": []
+  },
+  {
+    "slug": "kayla-harrison",
+    "full_name": "Kayla Harrison",
+    "aliases": []
+  },
+  {
+    "slug": "kevin-vallejos",
+    "full_name": "Kevin Vallejos",
+    "aliases": []
+  },
+  {
+    "slug": "khalil-rountree-jr",
+    "full_name": "Khalil Rountree Jr.",
+    "aliases": []
+  },
+  {
+    "slug": "khamzat-chimaev",
+    "full_name": "Khamzat Chimaev",
+    "aliases": [
+      "Borz"
+    ]
+  },
+  {
+    "slug": "kyoji-horiguchi",
+    "full_name": "Kyoji Horiguchi",
+    "aliases": []
+  },
+  {
+    "slug": "leon-edwards",
+    "full_name": "Leon Edwards",
+    "aliases": [
+      "Rocky"
+    ]
+  },
+  {
+    "slug": "lerone-murphy",
+    "full_name": "Lerone Murphy",
+    "aliases": []
+  },
+  {
+    "slug": "loneer-kavanagh",
+    "full_name": "Lone'er Kavanagh",
+    "aliases": []
+  },
+  {
+    "slug": "loopy-godinez",
+    "full_name": "Loopy Godinez",
+    "aliases": []
+  },
+  {
+    "slug": "luana-santos",
+    "full_name": "Luana Santos",
+    "aliases": []
+  },
+  {
+    "slug": "mackenzie-dern",
+    "full_name": "Mackenzie Dern",
+    "aliases": []
+  },
+  {
+    "slug": "macy-chiasson",
+    "full_name": "Macy Chiasson",
+    "aliases": []
+  },
+  {
+    "slug": "magomed-ankalaev",
+    "full_name": "Magomed Ankalaev",
+    "aliases": []
+  },
+  {
+    "slug": "manel-kape",
+    "full_name": "Manel Kape",
+    "aliases": []
+  },
+  {
+    "slug": "manon-fiorot",
+    "full_name": "Manon Fiorot",
+    "aliases": []
+  },
+  {
+    "slug": "manuel-torres",
+    "full_name": "Manuel Torres",
+    "aliases": []
+  },
+  {
+    "slug": "marcin-tybura",
+    "full_name": "Marcin Tybura",
+    "aliases": []
+  },
+  {
+    "slug": "marcus-mcghee",
+    "full_name": "Marcus McGhee",
+    "aliases": []
+  },
+  {
+    "slug": "mario-bautista",
+    "full_name": "Mario Bautista",
+    "aliases": []
+  },
+  {
+    "slug": "marlon-vera",
+    "full_name": "Marlon Vera",
+    "aliases": []
+  },
+  {
+    "slug": "mateusz-gamrot",
+    "full_name": "Mateusz Gamrot",
+    "aliases": []
+  },
+  {
+    "slug": "mauricio-ruffy",
+    "full_name": "Mauricio Ruffy",
+    "aliases": []
+  },
+  {
+    "slug": "max-holloway",
+    "full_name": "Max Holloway",
+    "aliases": [
+      "Blessed"
+    ]
+  },
+  {
+    "slug": "maycee-barber",
+    "full_name": "Maycee Barber",
+    "aliases": []
+  },
+  {
+    "slug": "melquizael-costa",
+    "full_name": "Melquizael Costa",
+    "aliases": []
+  },
+  {
+    "slug": "merab-dvalishvili",
+    "full_name": "Merab Dvalishvili",
+    "aliases": [
+      "The Machine"
+    ]
+  },
+  {
+    "slug": "michael-morales",
+    "full_name": "Michael Morales",
+    "aliases": []
+  },
+  {
+    "slug": "michael-venom-page",
+    "full_name": "Michael Venom Page",
+    "aliases": [
+      "MVP"
+    ]
+  },
+  {
+    "slug": "michelle-montague",
+    "full_name": "Michelle Montague",
+    "aliases": []
+  },
+  {
+    "slug": "mick-parkin",
+    "full_name": "Mick Parkin",
+    "aliases": []
+  },
+  {
+    "slug": "miesha-tate",
+    "full_name": "Miesha Tate",
+    "aliases": [
+      "Cupcake"
+    ]
+  },
+  {
+    "slug": "mike-malott",
+    "full_name": "Mike Malott",
+    "aliases": []
+  },
+  {
+    "slug": "miranda-maverick",
+    "full_name": "Miranda Maverick",
+    "aliases": []
+  },
+  {
+    "slug": "mizuki",
+    "full_name": "Mizuki",
+    "aliases": []
+  },
+  {
+    "slug": "movsar-evloev",
+    "full_name": "Movsar Evloev",
+    "aliases": []
+  },
+  {
+    "slug": "nassourdine-imavov",
+    "full_name": "Nassourdine Imavov",
+    "aliases": []
+  },
+  {
+    "slug": "natalia-silva",
+    "full_name": "Natalia Silva",
+    "aliases": []
+  },
+  {
+    "slug": "nikita-krylov",
+    "full_name": "Nikita Krylov",
+    "aliases": []
+  },
+  {
+    "slug": "nora-cornolle",
+    "full_name": "Nora Cornolle",
+    "aliases": []
+  },
+  {
+    "slug": "norma-dumont",
+    "full_name": "Norma Dumont",
+    "aliases": []
+  },
+  {
+    "slug": "paddy-pimblett",
+    "full_name": "Paddy Pimblett",
+    "aliases": [
+      "The Baddy"
+    ]
+  },
+  {
+    "slug": "patricio-pitbull",
+    "full_name": "Patricio Pitbull",
+    "aliases": []
+  },
+  {
+    "slug": "paulo-costa",
+    "full_name": "Paulo Costa",
+    "aliases": []
+  },
+  {
+    "slug": "payton-talbott",
+    "full_name": "Payton Talbott",
+    "aliases": []
+  },
+  {
+    "slug": "petr-yan",
+    "full_name": "Petr Yan",
+    "aliases": [
+      "No Mercy"
+    ]
+  },
+  {
+    "slug": "quillan-salkilld",
+    "full_name": "Quillan Salkilld",
+    "aliases": []
+  },
+  {
+    "slug": "rafael-fiziev",
+    "full_name": "Rafael Fiziev",
+    "aliases": []
+  },
+  {
+    "slug": "raoni-barcelos",
+    "full_name": "Raoni Barcelos",
+    "aliases": []
+  },
+  {
+    "slug": "raquel-pennington",
+    "full_name": "Raquel Pennington",
+    "aliases": []
+  },
+  {
+    "slug": "raul-rosas-jr",
+    "full_name": "Raul Rosas Jr.",
+    "aliases": []
+  },
+  {
+    "slug": "reinier-de-ridder",
+    "full_name": "Reinier de Ridder",
+    "aliases": []
+  },
+  {
+    "slug": "renato-moicano",
+    "full_name": "Renato Moicano",
+    "aliases": []
+  },
+  {
+    "slug": "rizvan-kuniev",
+    "full_name": "Rizvan Kuniev",
+    "aliases": []
+  },
+  {
+    "slug": "robert-whittaker",
+    "full_name": "Robert Whittaker",
+    "aliases": []
+  },
+  {
+    "slug": "roman-dolidze",
+    "full_name": "Roman Dolidze",
+    "aliases": []
+  },
+  {
+    "slug": "rose-namajunas",
+    "full_name": "Rose Namajunas",
+    "aliases": []
+  },
+  {
+    "slug": "sean-brady",
+    "full_name": "Sean Brady",
+    "aliases": []
+  },
+  {
+    "slug": "sean-omalley",
+    "full_name": "Sean O'Malley",
+    "aliases": [
+      "Suga",
+      "Sugar Sean"
+    ]
+  },
+  {
+    "slug": "sean-strickland",
+    "full_name": "Sean Strickland",
+    "aliases": []
+  },
+  {
+    "slug": "sergei-pavlovich",
+    "full_name": "Sergei Pavlovich",
+    "aliases": []
+  },
+  {
+    "slug": "serghei-spivac",
+    "full_name": "Serghei Spivac",
+    "aliases": []
+  },
+  {
+    "slug": "song-yadong",
+    "full_name": "Song Yadong",
+    "aliases": []
+  },
+  {
+    "slug": "steve-erceg",
+    "full_name": "Steve Erceg",
+    "aliases": []
+  },
+  {
+    "slug": "steve-garcia",
+    "full_name": "Steve Garcia",
+    "aliases": []
+  },
+  {
+    "slug": "tabatha-ricci",
+    "full_name": "Tabatha Ricci",
+    "aliases": []
+  },
+  {
+    "slug": "tagir-ulanbekov",
+    "full_name": "Tagir Ulanbekov",
+    "aliases": []
+  },
+  {
+    "slug": "tatiana-suarez",
+    "full_name": "Tatiana Suarez",
+    "aliases": []
+  },
+  {
+    "slug": "tatsuro-taira",
+    "full_name": "Tatsuro Taira",
+    "aliases": []
+  },
+  {
+    "slug": "tim-elliott",
+    "full_name": "Tim Elliott",
+    "aliases": []
+  },
+  {
+    "slug": "tom-aspinall",
+    "full_name": "Tom Aspinall",
+    "aliases": []
+  },
+  {
+    "slug": "tom-nolan",
+    "full_name": "Tom Nolan",
+    "aliases": []
+  },
+  {
+    "slug": "tracy-cortez",
+    "full_name": "Tracy Cortez",
+    "aliases": []
+  },
+  {
+    "slug": "tyrell-fortune",
+    "full_name": "Tyrell Fortune",
+    "aliases": []
+  },
+  {
+    "slug": "umar-nurmagomedov",
+    "full_name": "Umar Nurmagomedov",
+    "aliases": []
+  },
+  {
+    "slug": "uros-medic",
+    "full_name": "Uros Medic",
+    "aliases": []
+  },
+  {
+    "slug": "valentina-shevchenko",
+    "full_name": "Valentina Shevchenko",
+    "aliases": [
+      "Bullet"
+    ]
+  },
+  {
+    "slug": "valter-walker",
+    "full_name": "Valter Walker",
+    "aliases": []
+  },
+  {
+    "slug": "virna-jandiroba",
+    "full_name": "Virna Jandiroba",
+    "aliases": []
+  },
+  {
+    "slug": "volkan-oezdemir",
+    "full_name": "Volkan Oezdemir",
+    "aliases": []
+  },
+  {
+    "slug": "waldo-cortes-acosta",
+    "full_name": "Waldo Cortes Acosta",
+    "aliases": []
+  },
+  {
+    "slug": "wang-cong",
+    "full_name": "Wang Cong",
+    "aliases": []
+  },
+  {
+    "slug": "yair-rodriguez",
+    "full_name": "Yair Rodriguez",
+    "aliases": []
+  },
+  {
+    "slug": "yan-xiaonan",
+    "full_name": "Yan Xiaonan",
+    "aliases": []
+  },
+  {
+    "slug": "yana-santos",
+    "full_name": "Yana Santos",
+    "aliases": []
+  },
+  {
+    "slug": "yaroslav-amosov",
+    "full_name": "Yaroslav Amosov",
+    "aliases": []
+  },
+  {
+    "slug": "youssef-zalal",
+    "full_name": "Youssef Zalal",
+    "aliases": []
+  },
+  {
+    "slug": "zhang-weili",
+    "full_name": "Zhang Weili",
+    "aliases": [
+      "Magnum"
+    ]
+  }
 ]
