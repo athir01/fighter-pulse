@@ -1,10 +1,11 @@
 import pytest
+from pydantic import ValidationError
 
 from ingest.config import Settings
 
 
 def test_missing_required_fields_raises():
-    with pytest.raises(Exception):
+    with pytest.raises(ValidationError):
         Settings(_env_file=None)  # type: ignore[call-arg]
 
 

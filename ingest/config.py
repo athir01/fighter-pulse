@@ -13,7 +13,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(case_sensitive=False, extra="ignore")
+    # Real environment variables win over .env.local (pydantic-settings precedence).
+    model_config = SettingsConfigDict(env_file=".env.local", case_sensitive=False, extra="ignore")
 
     database_url: str
     anthropic_api_key: str

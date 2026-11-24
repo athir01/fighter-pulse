@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ParsedArticle(BaseModel):
@@ -24,16 +24,16 @@ class FighterMention(BaseModel):
     fighter_slug: str
     fighter_full_name: str
     match_score: float
-    """Fuzzy-match confidence (0-100) that this mention refers to this fighter."""
+    """Match confidence (0-100) that this mention refers to this fighter."""
 
 
 class ScoredMention(BaseModel):
     """A fighter mention with a sentiment score attached."""
 
     fighter_slug: str
-    sentiment_score: float
+    sentiment_score: float = Field(ge=-1.0, le=1.0)
     """-1.0 (very negative) to 1.0 (very positive)."""
-    confidence: float | None = None
+    confidence: float | None = Field(default=None, ge=0.0, le=1.0)
     rationale: str | None = None
     scorer: str
     """Which scorer produced this: 'vader' or a model id like 'claude-haiku-4-5'."""
