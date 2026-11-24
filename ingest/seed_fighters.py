@@ -1,7 +1,8 @@
 """CLI entrypoint: ``python -m ingest.seed_fighters``.
 
 Loads ``data/fighters_seed.json`` into the ``fighters`` table. Idempotent —
-reruns update existing rows in place (matches the upsert pattern in db.py).
+reruns update existing rows in place. ``ingest.run`` also does this at startup,
+so this is only needed to refresh the roster without running an ingest.
 """
 
 from __future__ import annotations
@@ -20,11 +21,7 @@ def main() -> int:
     roster = load_roster()
 
     for fighter in roster:
-        repo.upsert_fighter(
-            slug=str(fighter["slug"]),
-            full_name=str(fighter["full_name"]),
-            aliases=[str(a) for a in fighter["aliases"]],  # type: ignore[union-attr]
-        )
+        repo.upsert_fighter(fighter["slug"], fighter["full_name"], fighter["aliases"])
 
     log.info("fighters_seeded count=%d", len(roster))
     return 0

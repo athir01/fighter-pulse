@@ -1,10 +1,14 @@
 import pytest
+from pydantic import ValidationError
 
 from ingest.config import Settings
 
 
-def test_missing_required_fields_raises():
-    with pytest.raises(Exception):
+def test_missing_required_fields_raises(monkeypatch: pytest.MonkeyPatch):
+    # CI exports these, so clear them or Settings() finds them and succeeds.
+    monkeypatch.delenv("DATABASE_URL", raising=False)
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    with pytest.raises(ValidationError):
         Settings(_env_file=None)  # type: ignore[call-arg]
 
 

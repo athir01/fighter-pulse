@@ -27,30 +27,55 @@ class Repository:
     def __init__(self, conn: psycopg.Connection) -> None:
         self._c = conn
 
-    def upsert_article(self, article: ParsedArticle) -> str:
+    def upsert_article(self, article: ParsedArticle) -> tuple[str, bool]:
+        """Insert or update an article. Returns ``(article_id, content_changed)``.
+
+        ``content_changed`` is True for new articles and for articles whose
+        content differs from what's stored. The ``WHERE ... IS DISTINCT FROM``
+        clause turns a no-op update into *no* update, so the CTE returns no
+        row and we fall through to a plain lookup. Callers use the flag to
+        skip re-scoring (and re-paying the LLM for) unchanged articles —
+        idempotent is not the same as incremental.
+        """
+        params = (
+            article.source,
+            article.guid,
+            article.url,
+            article.title,
+            article.summary,
+            article.published_at,
+        )
         row = self._c.execute(
             """
-            INSERT INTO articles (source, guid, url, title, summary, published_at)
-            VALUES (%s, %s, %s, %s, %s, %s)
-            ON CONFLICT (source, guid) DO UPDATE SET
-                url = EXCLUDED.url,
-                title = EXCLUDED.title,
-                summary = EXCLUDED.summary,
-                published_at = EXCLUDED.published_at,
-                updated_at = now()
-            RETURNING id
+            WITH upserted AS (
+                INSERT INTO articles (source, guid, url, title, summary, published_at)
+                VALUES (%s, %s, %s, %s, %s, %s)
+                ON CONFLICT (source, guid) DO UPDATE SET
+                    url = EXCLUDED.url,
+                    title = EXCLUDED.title,
+                    summary = EXCLUDED.summary,
+                    published_at = EXCLUDED.published_at,
+                    updated_at = now()
+                WHERE (articles.url, articles.title, articles.summary, articles.published_at)
+                    IS DISTINCT FROM
+                    (EXCLUDED.url, EXCLUDED.title, EXCLUDED.summary, EXCLUDED.published_at)
+                RETURNING id
+            )
+            SELECT id, TRUE FROM upserted
+            UNION ALL
+            SELECT id, FALSE FROM articles
+            WHERE source = %s AND guid = %s AND NOT EXISTS (SELECT 1 FROM upserted)
             """,
-            (
-                article.source,
-                article.guid,
-                article.url,
-                article.title,
-                article.summary,
-                article.published_at,
-            ),
+            (*params, article.source, article.guid),
         ).fetchone()
         assert row is not None
-        return str(row[0])
+        return str(row[0]), bool(row[1])
+
+    def scorers_for_article(self, article_id: str) -> set[str]:
+        rows = self._c.execute(
+            "SELECT DISTINCT scorer FROM fighter_sentiment WHERE article_id = %s", (article_id,)
+        ).fetchall()
+        return {str(r[0]) for r in rows}
 
     def upsert_fighter(self, slug: str, full_name: str, aliases: list[str]) -> None:
         self._c.execute(
@@ -65,13 +90,14 @@ class Repository:
             (slug, full_name, aliases),
         )
 
-    def resolve_fighter_id(self, slug: str) -> str | None:
-        row = self._c.execute(
-            "SELECT id FROM fighters WHERE slug = %s", (slug,)
-        ).fetchone()
-        return str(row[0]) if row else None
+    def fighter_ids_by_slug(self) -> dict[str, str]:
+        """Load the whole slug -> id map once, instead of one query per scored row (N+1)."""
+        rows = self._c.execute("SELECT slug, id FROM fighters").fetchall()
+        return {str(slug): str(fid) for slug, fid in rows}
 
-    def upsert_fighter_sentiment(self, article_id: str, fighter_id: str, scored: ScoredMention) -> None:
+    def upsert_fighter_sentiment(
+        self, article_id: str, fighter_id: str, scored: ScoredMention
+    ) -> None:
         self._c.execute(
             """
             INSERT INTO fighter_sentiment
@@ -102,8 +128,15 @@ class Repository:
         return str(row[0])
 
     def finish_run(
-        self, run_id: str, *, status: str, records_processed: int, llm_cost_usd: float, error: str | None
+        self,
+        run_id: str,
+        *,
+        status: str,
+        records_processed: int,
+        llm_cost_usd: float,
+        error: str | None,
     ) -> None:
+        """``llm_cost_usd`` must be THIS run's spend only — total_llm_spend() sums it."""
         self._c.execute(
             """
             UPDATE ingest_runs

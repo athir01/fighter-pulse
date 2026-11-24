@@ -15,7 +15,7 @@ just the easy part (is this positive or negative).
 ## Architecture
 
 ```
-RSS feeds ──▶ discover ──▶ upsert article ──▶ find fighter mentions (free, fuzzy match)
+RSS feeds ──▶ discover ──▶ upsert article ──▶ find fighter mentions (free, exact token match)
                                                         │
                                     ┌───────────────────┼────────────────────┐
                                     ▼                                        ▼
@@ -30,8 +30,11 @@ RSS feeds ──▶ discover ──▶ upsert article ──▶ find fighter men
 
 - **Ingestion**: RSS feeds only (no scraping — RSS is explicitly meant for
   programmatic consumption, so there's no ToS risk).
-- **Entity resolution**: free fuzzy string matching (`rapidfuzz`) against a
-  seed fighter roster (`data/fighters_seed.json`).
+- **Entity resolution**: free, exact whole-token matching against a seed
+  fighter roster (`data/fighters_seed.json`), after stripping accents and
+  punctuation. Single-word nicknames ("Chaos", "Rocky") match case-sensitively
+  so ordinary words don't count as mentions. Precision over recall: surname-only
+  mentions are left unmatched rather than guessed.
 - **Scoring**: two scorers behind a common interface (`ingest/scoring/`) so
   they can be compared, not just swapped —
   - `VaderScorer`: free, local, whole-article sentiment. Can't attribute
@@ -43,6 +46,11 @@ RSS feeds ──▶ discover ──▶ upsert article ──▶ find fighter men
     `ingest_runs.llm_cost_usd`.
 - **Storage**: Postgres, idempotent upserts on natural keys — reruns update
   rows in place instead of duplicating.
+- **Incremental**: an article whose content hasn't changed is not re-scored by
+  a scorer that already scored it, so polling the same feed repeatedly doesn't
+  re-pay for LLM calls. Each `ingest_runs` row records that run's own spend,
+  which is what the cross-run cost cap sums. A run with some failed articles
+  finishes as `partial` (exit code 1).
 - **Evaluation**: `eval/` compares both scorers against a hand-labeled gold
   set (`eval/gold_set.csv`) — the piece that makes this a measured pipeline,
   not just one that produces plausible-looking numbers.
@@ -51,10 +59,10 @@ RSS feeds ──▶ discover ──▶ upsert article ──▶ find fighter men
 
 ```bash
 docker compose up -d          # local Postgres
-cp .env.example .env.local    # fill in DATABASE_URL / ANTHROPIC_API_KEY
+cp .env.example .env.local    # fill in DATABASE_URL / ANTHROPIC_API_KEY (loaded automatically)
 psql "$DATABASE_URL" -f db/migrations/0001_init.sql
-uv pip install -e ".[dev]"
-python -m ingest.run
+uv venv && uv pip install -e ".[dev]"
+python -m ingest.run          # also seeds/refreshes the fighter roster
 ```
 
 ## Testing
